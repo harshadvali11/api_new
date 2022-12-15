@@ -34,3 +34,6 @@ class UserProfile(AbstractBaseUser,PermissionsMixin):
     def __str__(self):
         return self.first_name+" "+self.last_name
     
+class MyModel(models.Model):
+    creator = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name="listings")
+    image_url = models.ImageField(upload_to='image')
